@@ -11,7 +11,7 @@ class Comment extends Component {
   }
   render() {
     return (
-      <div style={style.comment}>
+      <div className="contant-box__contact">
         <h3>{this.props.author}</h3>
         <p>ID : {this.props.id}</p>
         <span dangerouslySetInnerHTML={this.rawMarkup()} />

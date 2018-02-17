@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import CommentList from './CommentList';
 import CommentForm from './CommentForm';
-import style from './style';
 
 
 class CommentBox extends Component {
@@ -36,8 +35,8 @@ class CommentBox extends Component {
   }
   render() {
     return (
-      <div style={style.commentBox}>
-        <h2>Comments:</h2>
+      <div className="contact-box">
+        <h2>Contacts List:</h2>
         <CommentList data={this.state.data} />
         <CommentForm onCommentSubmit={this.handleCommentSubmit} />
       </div>

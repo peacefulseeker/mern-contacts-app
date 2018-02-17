@@ -1,0 +1,32 @@
+.contact-box {
+  margin: 0 auto;
+  width: 80vw; }
+
+* {
+  margin: 0;
+  padding: 0; }
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  font-size: inherit;
+  font-family: inherit; }
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box; }
+
+body {
+  padding: 0;
+  padding: 3rem 5rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  line-height: 2.2rem;
+  font-size: 1.6rem;
+  font-family: "Open Sans", sans-serif; }
+
+::selection {
+  background-color: red;
+  color: #fff; }

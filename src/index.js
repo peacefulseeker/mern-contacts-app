@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import CommentBox from './CommentBox';
+import './App.css';
 ReactDOM.render(
   <CommentBox
     url='http://localhost:3001/api/comments'
