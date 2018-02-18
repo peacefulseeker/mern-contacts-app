@@ -8,14 +8,14 @@ class Contact extends Component {
     super(props);
     this.state = {
       toBeUpdated: false,
-      author: '',
+      fullname: '',
       text: '',
       phone: ''
     };
     //binding all our functions to this class
     this.deleteContact = this.deleteContact.bind(this);
     this.updateContact = this.updateContact.bind(this);
-    this.handleAuthorChange = this.handleAuthorChange.bind(this);
+    this.handleFullnameChange = this.handleFullnameChange.bind(this);
     this.handleTextChange = this.handleTextChange.bind(this);
     this.handlePhoneChange = this.handlePhoneChange.bind(this);
     this.handleContactUpdate = this.handleContactUpdate.bind(this);
@@ -28,16 +28,16 @@ class Contact extends Component {
   handleContactUpdate(e) {
     e.preventDefault();
     let id = this.props.uniqueID;
-    //if author or text changed, set it. if not, leave null and our PUT
+    //if fullname or text changed, set it. if not, leave null and our PUT
     //request will ignore it.
-    let author = (this.state.author) ? this.state.author : null;
+    let fullname = (this.state.fullname) ? this.state.fullname : null;
     let text = (this.state.text) ? this.state.text : null;
     let phone = (this.state.phone) ? this.state.phone : null;
-    let contact = { author: author, text: text, phone: phone };
+    let contact = { fullname: fullname, text: text, phone: phone };
     this.props.onContactUpdate(id, contact);
     this.setState({
       toBeUpdated: !this.state.toBeUpdated,
-      author: '',
+      fullname: '',
       text: '',
       phone: ''
     })
@@ -46,7 +46,7 @@ class Contact extends Component {
     e.preventDefault();
     let id = this.props.uniqueID;
     this.props.onContactDelete(id);
-    console.log('oops, contact deleted!');
+    console.log(`Ooops, contact with id: '${id}' deleted!`);
   }
   handleTextChange(e) {
     this.setState({ text: e.target.value });
@@ -54,8 +54,8 @@ class Contact extends Component {
   handlePhoneChange(e) {
     this.setState({ phone: e.target.value });
   }
-  handleAuthorChange(e) {
-    this.setState({ author: e.target.value });
+  handleFullnameChange(e) {
+    this.setState({ fullname: e.target.value });
   }
 
 
@@ -66,7 +66,7 @@ class Contact extends Component {
   render() {
     return (
       <div className="contact-box__contact" id={this.props.id}>
-        <h3>{this.props.author}</h3>
+        <h3>{this.props.fullname}</h3>
         <p>ID: {this.props.uniqueID}</p>
         <p>Phone: {this.props.phone}</p>
         <span dangerouslySetInnerHTML={this.rawMarkup()} />
@@ -78,8 +78,8 @@ class Contact extends Component {
             <input
               type='text'
               placeholder='Update full name'
-              value={this.state.author}
-              onChange={this.handleAuthorChange} />
+              value={this.state.fullname}
+              onChange={this.handleFullnameChange} />
             <input
               type='text'
               placeholder='Update phone'

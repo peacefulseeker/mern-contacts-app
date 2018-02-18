@@ -42,7 +42,7 @@ class ContactBox extends Component {
       });
   }
   handleContactUpdate(id, contact) {
-    //sends the contact id and new author/text to our api
+    //sends the contact id and new fullname/text to our api
     axios.put(`${this.props.url}/${id}`, contact)
       .catch(err => {
         console.log(err);

@@ -8,7 +8,7 @@ class ContactList extends Component {
         <Contact
           onContactDelete={this.props.onContactDelete}
           onContactUpdate={this.props.onContactUpdate}
-          author={contact.author}
+          fullname={contact.fullname}
           phone={contact.phone}
           uniqueID={ contact._id }
           key={contact._id || 1} >
