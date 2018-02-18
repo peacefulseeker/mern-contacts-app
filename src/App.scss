@@ -1,8 +1,5 @@
 @import 'scss/variables';
 
-@import 'scss/components/ContactBox';
-
-
 * {
   margin: 0;
   padding: 0;
@@ -38,3 +35,5 @@ body {
 }
 
 
+@import 'scss/components/ContactBox';
+@import 'scss/components/Button';

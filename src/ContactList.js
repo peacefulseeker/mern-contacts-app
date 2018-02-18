@@ -1,11 +1,17 @@
-//CommentList.js
+//ContactList.js
 import React, { Component } from 'react';
 import Contact from './Contact';
 class ContactList extends Component {
   render() {
     const contactNodes = this.props.data.map(contact => {
       return (
-        <Contact author={contact.author} phone={contact.phone} key={contact._id || 1} id={contact._id}>
+        <Contact
+          onContactDelete={this.props.onContactDelete}
+          onContactUpdate={this.props.onContactUpdate}
+          author={contact.author}
+          phone={contact.phone}
+          uniqueID={ contact._id }
+          key={contact._id || 1} >
           {contact.text}
         </Contact >
       )

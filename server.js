@@ -72,6 +72,7 @@ router.route('/contacts/:contact_id')
       if (err) {
         res.send(err);
       }
+      console.log(req.body);
       //setting the new author and text to whatever was changed. If
       //nothing was changed we will not alter the field.
       (req.body.author) ? contact.author = req.body.author : null;

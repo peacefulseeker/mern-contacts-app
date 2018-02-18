@@ -1,6 +1,5 @@
 //ContactForm.js
 import React, { Component } from 'react';
-import style from './style';
 
 class ContactForm extends Component {
   constructor(props) {
@@ -33,28 +32,25 @@ class ContactForm extends Component {
   }
   render() {
     return (
-      <form style={style.commentForm} onSubmit={this.handleSubmit} className="contact-box__form">
+      <form onSubmit={this.handleSubmit} className="contact-box__form">
         <input
           type='text'
-          placeholder='Your name…'
-          style={style.commentFormAuthor}
+          placeholder='Your Name and Surname'
           value={this.state.author}
           onChange={this.handleAuthorChange} />
-        <input
-          type='text'
-          placeholder='Say something…'
-          style={style.commentFormText}
-          value={this.state.text}
-          onChange={this.handleTextChange} />
         <input
           type='text'
           placeholder='Your Phone'
           value={this.state.phone}
           onChange={this.handlePhoneChange} />
+        <textarea
+          type='text'
+          placeholder='Say something…'
+          value={this.state.text}
+          onChange={this.handleTextChange} />
         <input
           type='submit'
-          style={style.commentFormPost}
-          value='Post' />
+          value='Add Contact' />
       </form>
     )
   }
