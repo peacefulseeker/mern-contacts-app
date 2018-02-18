@@ -17,47 +17,4 @@
     padding: .3rem 1rem;
     font-size: 1.5rem;
   }
-
-  &__form {
-    margin-top: 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-
-    input {
-      height: 6rem;
-      padding-left: 1rem;
-      flex-basis: calc(49% - 2rem);
-      margin-bottom: 2rem;
-    }
-
-    textarea {
-      flex-basis: 100%;
-      padding-top: 20px;
-      padding-left: 1rem;
-      resize: none;
-    }
-
-    input,
-    textarea {
-      &:focus {
-        outline: none;
-        box-shadow: 0 0 1px coral;
-        border-color: transparent;
-      }
-    }
-
-    [type="submit"] {
-      flex-basis: 40%;
-      height: 4rem;
-      margin-top: 2rem;
-      background-color: coral;
-      border-radius: 3px;
-      color: #fff;
-      cursor: pointer;
-      text-transform: uppercase;
-      letter-spacing: .055rem;
-      border: none;
-    }
-  }
 }

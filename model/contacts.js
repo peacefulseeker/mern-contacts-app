@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 //object that shows the shape of your database entries.
 var ContactsSchema = new Schema({
   fullname: String,
-  text: String,
+  email: String,
   phone: String
 });
 //export our module to use in server.js

@@ -53,7 +53,7 @@ router.route("/contacts")
     var contact = new Contact();
     //body parser lets us use the req.body
     contact.fullname = req.body.fullname;
-    contact.text = req.body.text;
+    contact.email = req.body.email;
     contact.phone = req.body.phone;
     contact.save(function(err) {
       if (err) {
@@ -76,7 +76,7 @@ router.route('/contacts/:contact_id')
       //setting the new fullname and text to whatever was changed. If
       //nothing was changed we will not alter the field.
       (req.body.fullname) ? contact.fullname = req.body.fullname : null;
-      (req.body.text) ? contact.text = req.body.text : null;
+      (req.body.email) ? contact.email = req.body.email : null;
       (req.body.phone) ? contact.phone = req.body.phone : null;
       //save contact
       contact.save(function(err) {

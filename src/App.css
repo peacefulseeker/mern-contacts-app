@@ -24,8 +24,14 @@ body {
   font-family: "Open Sans", sans-serif; }
 
 ::selection {
-  background-color: red;
+  background-color: coral;
   color: #fff; }
+
+h2 {
+  font-size: 3rem;
+  text-align: center;
+  font-weight: bold;
+  margin: 3rem 0; }
 
 .contact-box {
   margin: 0 auto;
@@ -39,37 +45,39 @@ body {
     margin: 1rem;
     padding: .3rem 1rem;
     font-size: 1.5rem; }
-  .contact-box__form {
-    margin-top: 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around; }
-    .contact-box__form input {
-      height: 6rem;
-      padding-left: 1rem;
-      flex-basis: calc(49% - 2rem);
-      margin-bottom: 2rem; }
-    .contact-box__form textarea {
-      flex-basis: 100%;
-      padding-top: 20px;
-      padding-left: 1rem;
-      resize: none; }
-    .contact-box__form input:focus,
-    .contact-box__form textarea:focus {
-      outline: none;
-      box-shadow: 0 0 1px coral;
-      border-color: transparent; }
-    .contact-box__form [type="submit"] {
-      flex-basis: 40%;
-      height: 4rem;
-      margin-top: 2rem;
-      background-color: coral;
-      border-radius: 3px;
-      color: #fff;
-      cursor: pointer;
-      text-transform: uppercase;
-      letter-spacing: .055rem;
-      border: none; }
+
+form {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  transition: .2s all ease-in; }
+  form > * {
+    flex: 1 1 100%;
+    margin-bottom: 2rem;
+    transition: .5s all ease;
+    border: 1px solid #ccc; }
+  form input {
+    height: 6rem;
+    padding-left: 1rem; }
+  form textarea {
+    padding-top: 20px;
+    padding-left: 1rem;
+    resize: none; }
+  form input:focus,
+  form textarea:focus {
+    outline: none;
+    box-shadow: 0 0 1px coral;
+    border-color: transparent; }
+  form [type="submit"] {
+    flex-basis: 40%;
+    background-color: coral;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: .055rem;
+    border: none; }
 
 .button, .button:visited, .button:link {
   background-color: coral;
@@ -83,3 +91,5 @@ body {
   margin: 1rem; }
   .button:hover, .button:visited:hover, .button:link:hover {
     background-color: #ffa483; }
+  .button:active, .button:focus, .button:visited:active, .button:visited:focus, .button:link:active, .button:link:focus {
+    background-color: #ff5a1d; }

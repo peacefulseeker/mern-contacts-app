@@ -10,9 +10,10 @@ class ContactList extends Component {
           onContactUpdate={this.props.onContactUpdate}
           fullname={contact.fullname}
           phone={contact.phone}
+          email={contact.email}
           uniqueID={ contact._id }
           key={contact._id || 1} >
-          {contact.text}
+          {contact.fullname}
         </Contact >
       )
     })

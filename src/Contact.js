@@ -9,14 +9,14 @@ class Contact extends Component {
     this.state = {
       toBeUpdated: false,
       fullname: '',
-      text: '',
+      email: '',
       phone: ''
     };
     //binding all our functions to this class
     this.deleteContact = this.deleteContact.bind(this);
     this.updateContact = this.updateContact.bind(this);
     this.handleFullnameChange = this.handleFullnameChange.bind(this);
-    this.handleTextChange = this.handleTextChange.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handlePhoneChange = this.handlePhoneChange.bind(this);
     this.handleContactUpdate = this.handleContactUpdate.bind(this);
   }
@@ -31,14 +31,14 @@ class Contact extends Component {
     //if fullname or text changed, set it. if not, leave null and our PUT
     //request will ignore it.
     let fullname = (this.state.fullname) ? this.state.fullname : null;
-    let text = (this.state.text) ? this.state.text : null;
+    let email = (this.state.email) ? this.state.email : null;
     let phone = (this.state.phone) ? this.state.phone : null;
-    let contact = { fullname: fullname, text: text, phone: phone };
+    let contact = { fullname: fullname, email: email, phone: phone };
     this.props.onContactUpdate(id, contact);
     this.setState({
       toBeUpdated: !this.state.toBeUpdated,
       fullname: '',
-      text: '',
+      email: '',
       phone: ''
     })
   }
@@ -48,8 +48,8 @@ class Contact extends Component {
     this.props.onContactDelete(id);
     console.log(`Ooops, contact with id: '${id}' deleted!`);
   }
-  handleTextChange(e) {
-    this.setState({ text: e.target.value });
+  handleEmailChange(e) {
+    this.setState({ email: e.target.value });
   }
   handlePhoneChange(e) {
     this.setState({ phone: e.target.value });
@@ -66,9 +66,10 @@ class Contact extends Component {
   render() {
     return (
       <div className="contact-box__contact" id={this.props.id}>
-        <h3>{this.props.fullname}</h3>
-        <p>ID: {this.props.uniqueID}</p>
+        <h3>Full Name: {this.props.fullname}</h3>
         <p>Phone: {this.props.phone}</p>
+        <p>Email: {this.props.email}</p>
+        <p>ID: {this.props.uniqueID}</p>
         <span dangerouslySetInnerHTML={this.rawMarkup()} />
         <a className="button" href='' onClick={this.updateContact}>update</a>
         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
@@ -77,19 +78,20 @@ class Contact extends Component {
           ? (<form onSubmit={this.handleContactUpdate}>
             <input
               type='text'
-              placeholder='Update full name'
+              placeholder='Update Full Name'
               value={this.state.fullname}
               onChange={this.handleFullnameChange} />
             <input
-              type='text'
-              placeholder='Update phone'
-              value={this.state.phone}
-              onChange={this.handlePhoneChange} />
+              type='email'
+              placeholder='Update Email'
+              value={this.state.email}
+              onChange={this.handleEmailChange} />
             <input
               type='text'
-              placeholder='Update email'
-              value={this.state.text}
-              onChange={this.handleTextChange} />
+              className="danger"
+              placeholder='Update Phone'
+              value={this.state.phone}
+              onChange={this.handlePhoneChange} />
             <input
               type='submit'
               value='Update contact' />
