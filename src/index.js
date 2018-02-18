@@ -1,11 +1,11 @@
 //index.js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CommentBox from './CommentBox';
+import ContactBox from './ContactBox';
 import './App.css';
 ReactDOM.render(
-  <CommentBox
-    url='http://localhost:3001/api/comments'
+  <ContactBox
+    url='http://localhost:3001/api/contacts'
     pollInterval={2000} />,
   document.getElementById('root')
 );

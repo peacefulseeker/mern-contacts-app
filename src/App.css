@@ -1,6 +1,21 @@
 .contact-box {
   margin: 0 auto;
   width: 80vw; }
+  .contact-box__list {
+    border: 1px solid #f1f1f1;
+    padding: 0 1.2rem;
+    max-height: 70vh;
+    overflow: scroll; }
+  .contact-box__contact {
+    background-color: #fafafa;
+    margin: 1rem;
+    padding: .3rem 1rem;
+    font-size: 1.5rem; }
+  .contact-box__form {
+    margin: 1rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between; }
 
 * {
   margin: 0;

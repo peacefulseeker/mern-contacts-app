@@ -1,12 +1,14 @@
-//CommentForm.js
+//ContactForm.js
 import React, { Component } from 'react';
 import style from './style';
-class CommentForm extends Component {
+
+class ContactForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { author: '', text: '' };
+    this.state = { author: '', text: '', phone: '' };
     this.handleAuthorChange = this.handleAuthorChange.bind(this);
     this.handleTextChange = this.handleTextChange.bind(this);
+    this.handlePhoneChange = this.handlePhoneChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleAuthorChange(e) {
@@ -15,19 +17,23 @@ class CommentForm extends Component {
   handleTextChange(e) {
     this.setState({ text: e.target.value });
   }
+  handlePhoneChange(e) {
+    this.setState({ phone: e.target.value });
+  }
   handleSubmit(e) {
     e.preventDefault();
     let author = this.state.author.trim();
     let text = this.state.text.trim();
-    if (!text || !author) {
+    let phone = this.state.phone.trim();
+    if (!text || !author || !phone) {
       return;
     }
-    this.props.onCommentSubmit({ author: author, text: text });
-    this.setState({ author: "", text: "" });
+    this.props.onContactSubmit({ author: author, text: text, phone: phone });
+    this.setState({ author: "", text: "", phone: "" });
   }
   render() {
     return (
-      <form style={style.commentForm} onSubmit={this.handleSubmit}>
+      <form style={style.commentForm} onSubmit={this.handleSubmit} className="contact-box__form">
         <input
           type='text'
           placeholder='Your name…'
@@ -41,6 +47,11 @@ class CommentForm extends Component {
           value={this.state.text}
           onChange={this.handleTextChange} />
         <input
+          type='text'
+          placeholder='Your Phone'
+          value={this.state.phone}
+          onChange={this.handlePhoneChange} />
+        <input
           type='submit'
           style={style.commentFormPost}
           value='Post' />
@@ -48,4 +59,4 @@ class CommentForm extends Component {
     )
   }
 }
-export default CommentForm;
+export default ContactForm;

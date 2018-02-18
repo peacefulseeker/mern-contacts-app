@@ -1,22 +1,22 @@
 
 //Comment.js
 import React, { Component } from "react";
-import style from "./style";
 import marked from "marked";
 
-class Comment extends Component {
+class Contact extends Component {
   rawMarkup() {
     let rawMarkup = marked(this.props.children.toString());
     return { __html: rawMarkup };
   }
   render() {
     return (
-      <div className="contant-box__contact">
+      <div className="contact-box__contact" id={this.props.id}>
         <h3>{this.props.author}</h3>
-        <p>ID : {this.props.id}</p>
+        <p>ID: {this.props.id}</p>
+        <p>Phone: {this.props.phone}</p>
         <span dangerouslySetInnerHTML={this.rawMarkup()} />
       </div>
     )
   }
 }
-export default Comment;
+export default Contact;

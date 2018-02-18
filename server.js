@@ -3,7 +3,7 @@
 var express = require("express");
 var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
-var Contact = require("./model/comments");
+var Contact = require("./model/contacts");
 //and create our instances
 var app = express();
 var router = express.Router();
@@ -25,7 +25,7 @@ app.use(function(req, res, next) {
   res.setHeader("Access-Control-Allow-Credentials", "true");
   res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE");
   res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
-  //and remove cacheing so we get the most recent comments
+  //and remove cacheing so we get the most recent contacts
   res.setHeader("Cache-Control", "no-cache");
   next();
 });
@@ -36,32 +36,64 @@ router.get("/", function(req, res) {
 //Use our router configuration when we call /api
 app.use("/api", router);
 
-//adding the /comments route to our /api router
-router.route("/comments")
-  //retrieve all comments from the database
+//adding the /contacts route to our /api router
+router.route("/contacts")
+  //retrieve all contacts from the database
   .get(function(req, res) {
     //looks at our Contact Schema
-    Contact.find(function(err, comments) {
+    Contact.find(function(err, contacts) {
       if (err)
         res.send(err);
-      //responds with a json object of our database comments.
-      res.json(comments)
+      //responds with a json object of our database contacts.
+      res.json(contacts)
     });
   })
-  //post new comment to the database
+  //post new contact to the database
   .post(function(req, res) {
-    var comment = new Contact();
+    var contact = new Contact();
     //body parser lets us use the req.body
-    comment.author = req.body.author;
-    comment.text = req.body.text;
-    comment.save(function(err) {
+    contact.author = req.body.author;
+    contact.text = req.body.text;
+    contact.phone = req.body.phone;
+    contact.save(function(err) {
+      if (err) {
+        res.send(err);
+      }
+      res.json({ message: "Contact successfully added!" });
+    })
+  });
+//Add this after our get and post routes
+//Adding a route to a specific comment based on the database ID
+router.route('/contacts/:contact_id')
+  //The put method gives us the chance to update our contact based on
+  //the ID passed to the route
+  .put(function(req, res) {
+    Contact.findById(req.params.contact_id, function(err, contact) {
+      if (err) {
+        res.send(err);
+      }
+      //setting the new author and text to whatever was changed. If
+      //nothing was changed we will not alter the field.
+      (req.body.author) ? contact.author = req.body.author : null;
+      (req.body.text) ? contact.text = req.body.text : null;
+      (req.body.phone) ? contact.phone = req.body.phone : null;
+      //save contact
+      contact.save(function(err) {
+        if (err)
+          res.send(err);
+        res.json({ message: 'Contact has been updated' });
+      });
+    });
+  })
+  //delete method for removing a contact from our database
+  .delete(function(req, res) {
+    //selects the contact by its ID, then removes it.
+    Contact.remove({ _id: req.params.contact_id }, function(err, contact) {
       if (err)
         res.send(err);
-      res.json({ message: "Contact successfully added!" });
-    });
+      res.json({ message: 'Contact has been deleted' })
+    })
   });
-//Use our router configuration when we call /api
-//...
 
 //starts the server and listens for requests
 app.listen(port, function() {
