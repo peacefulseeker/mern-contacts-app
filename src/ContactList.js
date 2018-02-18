@@ -13,7 +13,7 @@ class ContactList extends Component {
           email={contact.email}
           uniqueID={ contact._id }
           key={contact._id || 1} >
-          {contact.fullname}
+          Text inside component
         </Contact >
       )
     })

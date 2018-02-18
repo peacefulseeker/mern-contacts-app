@@ -58,7 +58,6 @@ class Contact extends Component {
     this.setState({ fullname: e.target.value });
   }
 
-
   rawMarkup() {
     let rawMarkup = marked(this.props.children.toString());
     return { __html: rawMarkup };
