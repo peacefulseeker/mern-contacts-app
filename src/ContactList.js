@@ -16,7 +16,8 @@ class ContactList extends Component {
           Text inside component
         </Contact >
       )
-    })
+    });
+    console.log(contactNodes);
     return (
       <div className="contact-box__list">
         {contactNodes}
