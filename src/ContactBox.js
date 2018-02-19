@@ -8,14 +8,14 @@ class ContactBox extends Component {
   constructor(props) {
     super(props);
     this.state = { data: [] };
+    this.finalUrl = window.location.href.includes('localhost') ? this.props.urlLocal : this.props.url;
     this.loadContactsFromServer = this.loadContactsFromServer.bind(this);
     this.handleContactSubmit = this.handleContactSubmit.bind(this);
     this.handleContactDelete = this.handleContactDelete.bind(this);
     this.handleContactUpdate = this.handleContactUpdate.bind(this);
-
   }
   loadContactsFromServer() {
-    axios.get(this.props.url)
+    axios.get(this.finalUrl)
       .then(res => {
         this.setState({ data: res.data });
       })
@@ -25,14 +25,14 @@ class ContactBox extends Component {
     contact.id = Date.now();
     let newContacts = contacts.concat([contact]);
     this.setState({ data: newContacts });
-    axios.post(this.props.url, contact)
+    axios.post(this.finalUrl, contact)
       .catch(err => {
         console.error(err);
         this.setState({ data: contacts });
       });
   }
   handleContactDelete(id) {
-    axios.delete(`${this.props.url}/${id}`)
+    axios.delete(`${this.finalUrl}/${id}`)
       .then(res => {
         // console.log('Contact deleted');
         // console.log(res);
@@ -43,7 +43,7 @@ class ContactBox extends Component {
   }
   handleContactUpdate(id, contact) {
     //sends the contact id and new fullname/text to our api
-    axios.put(`${this.props.url}/${id}`, contact)
+    axios.put(`${this.finalUrl}/${id}`, contact)
       .catch(err => {
         console.log(err);
       })

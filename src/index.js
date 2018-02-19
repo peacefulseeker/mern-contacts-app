@@ -5,7 +5,8 @@ import ContactBox from './ContactBox';
 import './App.css';
 ReactDOM.render(
   <ContactBox
-    url='http://localhost:3001/api/contacts'
+    urlLocal='http://localhost:3001/api/contacts'
+    url='https://ancient-river-68531.herokuapp.com'
     pollInterval={2000} />,
   document.getElementById('root')
 );
