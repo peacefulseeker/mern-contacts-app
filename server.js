@@ -11,6 +11,10 @@ var router = express.Router();
 //it up, or 3001
 
 var port = process.env.PORT || 3001;
+
+if (process.env.NODE_ENV == 'production') {
+  app.use(express.static('build'))
+}
 mongoose.connect('mongodb://db-mern-user:admin@ds237748.mlab.com:37748/db-mern');
 
 
