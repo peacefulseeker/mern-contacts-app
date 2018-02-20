@@ -6,7 +6,7 @@ import './App.css';
 ReactDOM.render(
   <ContactBox
     urlLocal='http://localhost:3001/api/contacts'
-    url='https://ancient-river-68531.herokuapp.com'
+    url='https://ancient-river-68531.herokuapp.com/api/contacts/'
     pollInterval={2000} />,
   document.getElementById('root')
 );
