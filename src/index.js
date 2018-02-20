@@ -5,10 +5,10 @@ import ContactBox from './ContactBox';
 import './App.css';
 
 let port = 3100;
-let portHeroku = 9401;
+let portHeroku = 8929;
 let boxProps = {
   urlLocal: `http://localhost:${port}/api/contacts`,
-  url: `/api/contacts`,
+  url: `:${portHeroku}/api/contacts`,
   pollInterval: 2000
 };
 ReactDOM.render(
