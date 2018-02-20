@@ -1,4 +1,5 @@
 @import 'scss/variables';
+@import 'scss/mixins';
 
 * {
   margin: 0;
@@ -27,6 +28,11 @@ body {
   line-height: 2.2rem;
   font-size: 1.6rem;
   font-family: "Open Sans", sans-serif;
+
+  @include respond(phone) {
+    padding: 1rem 2rem;
+  }
+
 }
 
 ::selection {

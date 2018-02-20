@@ -20,4 +20,16 @@
       background-color: darken($color-primary, 10%);
     }
   }
+
+  &.-delete {
+    background-color: $color-danger;
+
+    &:hover {
+      background-color: lighten($color-danger, 10%);
+    }
+    &:active,
+    &:focus {
+      background-color: darken($color-danger, 10%);
+    }
+  }
 }

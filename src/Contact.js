@@ -72,7 +72,7 @@ class Contact extends Component {
         <span dangerouslySetInnerHTML={this.rawMarkup()} />
         <a className="button" href='' onClick={this.updateContact}>update</a>
         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-        <a className="button" href='' onClick={this.deleteContact}>delete</a>
+        <a className="button -delete" href='' onClick={this.deleteContact}>delete</a>
         {(this.state.toBeUpdated)
           ? (<form onSubmit={this.handleContactUpdate}>
             <input

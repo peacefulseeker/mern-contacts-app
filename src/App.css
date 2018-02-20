@@ -21,7 +21,11 @@ body {
   font-weight: 400;
   line-height: 2.2rem;
   font-size: 1.6rem;
-  font-family: "Open Sans", sans-serif; }
+  font-family: "Open Sans", sans-serif;
+  /* Primary input mechanism system can hover over elements with ease */ }
+  @media only screen and (max-width: 37.5em) {
+    body {
+      padding: 1rem 2rem; } }
 
 ::selection {
   background-color: coral;
@@ -44,6 +48,11 @@ h2 {
     margin: 1rem;
     padding: .3rem 1rem;
     font-size: 1.5rem; }
+    .contact-box__contact input {
+      height: 4rem;
+      line-height: 4rem;
+      flex-basis: 30%;
+      flex-grow: 0; }
 
 form {
   margin-top: 1rem;
@@ -92,3 +101,10 @@ form {
     background-color: #ffa483; }
   .button:active, .button:focus, .button:visited:active, .button:visited:focus, .button:link:active, .button:link:focus {
     background-color: #ff5a1d; }
+
+.button.-delete {
+  background-color: red; }
+  .button.-delete:hover {
+    background-color: #ff3333; }
+  .button.-delete:active, .button.-delete:focus {
+    background-color: #cc0000; }

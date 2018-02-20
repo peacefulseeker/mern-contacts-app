@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Contact from './Contact';
 class ContactList extends Component {
   render() {
+    console.log(this.props.data);
     const contactNodes = this.props.data.map(contact => {
       return (
         <Contact
@@ -17,7 +18,7 @@ class ContactList extends Component {
         </Contact >
       )
     });
-    console.log(contactNodes);
+
     return (
       <div className="contact-box__list">
         {contactNodes}
