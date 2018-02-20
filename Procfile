@@ -1,3 +1,3 @@
-web: nodemon server.js
-start: react-scripts start
+web: react-scripts start
+api: nodemon server.js
 scss: npm run watch-css
