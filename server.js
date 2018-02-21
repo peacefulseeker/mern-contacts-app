@@ -13,7 +13,6 @@ var router = express.Router();
 var port = process.env.PORT || 3001;
 mongoose.connect('mongodb://db-mern-user:admin@ds237748.mlab.com:37748/db-mern');
 
-
 //now we should configure the API to use bodyParser and look for
 //JSON data in the request body
 app.use(bodyParser.urlencoded({ extended: true }));
