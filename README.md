@@ -20,3 +20,6 @@ And customized for app needs.
 Need to say that I could not understood the practical point of using styles inside javascript variable, so replaced it with normal SCSS and used globally for entire app
 
 
+### Deployed Version
+Can be found on deployed branch:
+[Deployed](/tree/deployed)
