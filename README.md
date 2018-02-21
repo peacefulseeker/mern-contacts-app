@@ -22,4 +22,5 @@ Need to say that I could not understood the practical point of using styles insi
 
 ### Deployed Version
 Can be found on deployed branch:
-[Deployed](https://github.com/peacefulseeker/mern-contacts-app/tree/master)
+[Deployed](https://github.com/peacefulseeker/mern-contacts-app/tree/deployed)
+
