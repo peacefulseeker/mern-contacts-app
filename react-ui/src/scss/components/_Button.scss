@@ -1,0 +1,35 @@
+.button {
+  &,
+  &:visited,
+  &:link {
+    background-color: $color-primary;
+    text-decoration: none;
+    color: #fff;
+    padding: 1.5rem 3rem;
+    transition: .5s all cubic-bezier(0.165, 0.84, 0.44, 1);
+    text-transform: uppercase;
+    display: inline-block;
+    border-radius: 1rem;
+    margin: 1rem;
+
+    &:hover {
+      background-color: lighten($color-primary, 10%);
+    }
+    &:active,
+    &:focus {
+      background-color: darken($color-primary, 10%);
+    }
+  }
+
+  &.-delete {
+    background-color: $color-danger;
+
+    &:hover {
+      background-color: lighten($color-danger, 10%);
+    }
+    &:active,
+    &:focus {
+      background-color: darken($color-danger, 10%);
+    }
+  }
+}

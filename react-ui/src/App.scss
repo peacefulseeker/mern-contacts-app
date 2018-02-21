@@ -1,0 +1,53 @@
+@import 'scss/variables';
+@import 'scss/mixins';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  padding: 3rem 5rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  line-height: 2.2rem;
+  font-size: 1.6rem;
+  font-family: "Open Sans", sans-serif;
+
+  @include respond(phone) {
+    padding: 1rem 2rem;
+  }
+
+}
+
+::selection {
+  background-color: $color-primary;
+  color: #fff;
+}
+
+h2 {
+  font-size: 3rem;
+  text-align: center;
+  font-weight: bold;
+  margin: 3rem 0;
+}
+
+
+@import 'scss/components/ContactBox';
+@import 'scss/components/Form';
+@import 'scss/components/Button';

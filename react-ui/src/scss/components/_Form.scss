@@ -1,0 +1,45 @@
+form {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  transition: .2s all ease-in;
+
+  & > * {
+    flex:  1 1 100%;
+    margin-bottom: 2rem;
+    transition: .5s all ease;
+    border: 1px solid #ccc;
+  }
+
+  input {
+    height: 6rem;
+    padding-left: 1rem;
+  }
+
+  textarea {
+    padding-top: 20px;
+    padding-left: 1rem;
+    resize: none;
+  }
+
+  input,
+  textarea {
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 1px $color-primary;
+      border-color: transparent;
+    }
+  }
+
+  [type="submit"] {
+    flex-basis: 40%;
+    background-color: $color-primary;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: .055rem;
+    border: none;
+  }
+}

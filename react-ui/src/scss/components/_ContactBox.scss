@@ -1,0 +1,26 @@
+.contact-box {
+  margin: 0 auto;
+  width: 80vw;
+
+  &__contact {
+  }
+
+  &__list {
+    border: 1px solid #f1f1f1;
+    padding: 0 1.2rem;
+  }
+
+  &__contact {
+    background-color: #fafafa;
+    margin: 1rem;
+    padding: .3rem 1rem;
+    font-size: 1.5rem;
+
+    input {
+      height: 4rem;
+      line-height: 4rem;
+      flex-basis: 30%;
+      flex-grow: 0
+    }
+  }
+}

@@ -6,11 +6,18 @@
     "react-scripts": "^1.1.0"
   },
   "dependencies": {
+    "axios": "^0.17.1",
+    "marked": "^0.3.12",
+    "node-sass-chokidar": "^0.0.3",
+    "nodemon": "^1.15.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },
   "scripts": {
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "start": "react-scripts start",
+    "start-dev": "nf start --procfile Procfile.dev -p 3000",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
